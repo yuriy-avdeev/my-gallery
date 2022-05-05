@@ -1,0 +1,9 @@
+@import '../../assets/scss/variables.scss';
+
+.main {
+  width: $full-width;
+  padding: 25px;
+  flex-grow: 2;
+  display: flex;
+  flex-direction: column;
+}

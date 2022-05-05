@@ -1,0 +1,37 @@
+@import '../../assets/scss/variables.scss';
+
+.header {
+  width: $full-width;
+  padding: 15px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  background: no-repeat center url('../../assets/images/header-green.jpg');
+}
+
+.header__link {
+  text-decoration: none;
+  font-size: 14px;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.85);
+  padding: 0 0 13px 24px;
+  margin-right: 40px;
+  background: no-repeat 0 5px;
+  background-image: url('../../assets/images/envelope.svg');
+
+  &:last-of-type {
+    margin-right: 0;
+    background-position: 12.5px 5px;
+    padding: 0 12.5px 13px 36.5px;
+  }
+
+  &_active {
+    // color: $blue-color;
+    border-bottom: 2px solid $blue-color;
+    background-image: url('../../assets/images/envelopeBlue.svg');
+  }
+
+  &:hover {
+    @include hover(0.7, '.3s');
+  }
+}

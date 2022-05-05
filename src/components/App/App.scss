@@ -1,0 +1,17 @@
+@import '../../assets/scss/variables.scss';
+
+.app {
+  margin: auto;
+  width: $full-width;
+  min-height: 100vh;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: rgba(0, 255, 255, .09);
+
+  &__main {
+    padding: 25px;
+    flex-grow: 2;
+  }
+}
