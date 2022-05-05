@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_gallery=self.webpackChunkmy_gallery||[]).push([[464],{464:function(e,r,a){a.r(r);var c=a(871),n=a(184);r.default=function(){var e=(0,c.UO)().cardId;return(0,n.jsxs)("div",{className:"picture-item",children:[(0,n.jsxs)("h2",{children:[" Component with dynamic (:cardId) from URL - ",e]}),";"]})}}}]);
+//# sourceMappingURL=464.7ef4307d.chunk.js.map
