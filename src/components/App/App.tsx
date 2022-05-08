@@ -11,7 +11,9 @@ const PictureItem = lazy(() => import('../PictureItem/PictureItem'))
 const PictureLast = lazy(() => import('../PictureLast/PictureLast'))
 const PageNotFound = lazy(() => import('../PageNotFound/PageNotFound'))
 
-function App() {
+const App = () => {
+
+
   return (
     <div className='app'>
       <Header />

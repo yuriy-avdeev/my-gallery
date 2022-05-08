@@ -1,6 +1,7 @@
+import { memo } from 'react'
 import { Outlet, NavLink } from 'react-router-dom'
 
-const Gallery = () => {
+const Gallery = memo(() => {
   return (
     <div className='picture-item'>
       <h1> Gallery</h1>
@@ -15,6 +16,6 @@ const Gallery = () => {
       <Outlet />
     </div>
   )
-}
+})
 
 export default Gallery
