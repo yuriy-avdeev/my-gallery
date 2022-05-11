@@ -13,6 +13,17 @@ const PageNotFound = lazy(() => import('../PageNotFound/PageNotFound'))
 
 const App = () => {
 
+  // // @filename: animal.ts
+  // export type Cat = { breed: string; yearOfBirth: number }
+
+  // export interface Dog {
+  //   breeds: string[]
+  //   yearOfBirth: number
+  // }
+
+  // // @filename: app.ts
+  // import type { Cat, Dog } from './animal.js'
+  // type Animals = Cat | Dog
 
   return (
     <div className='app'>
