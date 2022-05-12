@@ -12,6 +12,11 @@ const PictureLast = lazy(() => import('../PictureLast/PictureLast'))
 const PageNotFound = lazy(() => import('../PageNotFound/PageNotFound'))
 
 const App = () => {
+  // const [title, setTitle] = useState<string>('')
+
+  // const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
+  //   setTitle(e.target.value)
+  // }
 
   // // @filename: animal.ts
   // export type Cat = { breed: string; yearOfBirth: number }

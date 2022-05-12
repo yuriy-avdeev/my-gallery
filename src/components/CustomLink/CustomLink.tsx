@@ -1,16 +1,26 @@
-import { ReactNode } from 'react'
-import { Link, useMatch, useResolvedPath } from 'react-router-dom'
+import { FC } from 'react'
+import { Link, useMatch, useResolvedPath, Path, PathMatch } from 'react-router-dom'
 
-const CustomLink = (props: { to: string; children: ReactNode }) => {
-  const resolved = useResolvedPath(props.to)
-  const match = useMatch({ path: resolved.pathname, end: true })
+import { CustomLinkListProps } from '../../variables'
+import './CustomLink.scss'
+
+const CustomLink: FC<CustomLinkListProps> = ({ to, children }) => {
+  const resolved: Path = useResolvedPath(to)
+  const match: PathMatch<string> | null = useMatch({ path: resolved.pathname, end: true })
+  // const remove = (e: React.MouseEvent, id: number) => {
+  //   e.preventDefault()
+  //   onRemove(id)
+  // }
 
   return (
-    <div>
-      <Link style={{ color: match ? 'white' : 'darkblue' }} to={props.to}>
-        {props.children}
-      </Link>
-    </div>
+    <Link
+      className={`link ${match && 'link_active'}`}
+      // style={{ color: match ? 'white' : 'darkblue' }}
+      to={to}
+      // onClick={(e) => remove(e, id)}
+    >
+      {children}
+    </Link>
   )
 }
 
