@@ -1,3 +1,5 @@
+@import '../../assets/scss/_variables.scss';
+
 @keyframes preloader {
   0% {
     -webkit-transform: scale(0, 0);
@@ -6,7 +8,7 @@
     -o-transform: scale(0, 0);
     transform: scale(0, 0);
     opacity: 1;
-    border: #fff 50px solid;
+    border: $white 50px solid;
   }
   100% {
     -webkit-transform: scale(1, 1);
@@ -15,7 +17,7 @@
     -o-transform: scale(1, 1);
     transform: scale(1, 1);
     opacity: 0.1;
-    border: #fff 1px solid;
+    border: $white 1px solid;
   }
 }
 
@@ -40,7 +42,7 @@
 }
 
 .preloader__round {
-  width: 100%;
+  width: $fullWidth;
   height: 100%;
   position: fixed;
   top: 0;

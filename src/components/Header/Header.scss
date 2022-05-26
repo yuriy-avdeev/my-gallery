@@ -1,15 +1,16 @@
-@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/_variables.scss';
 
 .header {
-  width: $full-width;
-  padding: 7px 20px;
+  width: $fullWidth;
+  padding: 10px 25px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: no-repeat left url('../../assets/images/header-green.jpg');
+  background: no-repeat left url('../../assets/images/header.jpg');
+  background-position: 10%;
 
   &__logo {
-    width: 52px;
+    width: 50px;
     cursor: pointer;
   }
 

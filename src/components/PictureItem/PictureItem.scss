@@ -1,0 +1,13 @@
+@import '../../assets/scss/_variables.scss';
+
+.picture-item {
+  width: calc($cardMaxSize * 2 + $gap);
+  height: fit-content;
+  background-color: $backgroundColorBody; // <<<<<<<<<<<<<
+  border-radius: 5px;
+
+  &__image {
+    width: $fullWidth;
+    max-height: 92%; // <<<<<<<<<<<<
+  }
+}

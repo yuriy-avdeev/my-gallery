@@ -1,9 +1,15 @@
-@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/_variables.scss';
 
 .main {
-  width: $full-width;
-  padding: 25px;
+  width: $fullWidth;
+  padding: 25px 0;
   flex-grow: 2;
   display: flex;
   flex-direction: column;
+  justify-content: start;
+  align-items: flex-start;
+
+  &__title {
+    @include fontProperty(28px, 700, 1.2, _);
+  }
 }

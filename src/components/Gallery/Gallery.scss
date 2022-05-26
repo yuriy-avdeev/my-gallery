@@ -1,0 +1,39 @@
+@import '../../assets/scss/_variables.scss';
+
+.gallery {
+  flex-grow: 2;
+  padding: 25px 0;
+
+  &__title {
+    @include fontProperty(28px, 700, 1.2, _);
+    margin-bottom: 15px;
+    color: $fontTitle;
+  }
+
+  &__content {
+    width: $fullWidth;
+    display: flex;
+    // justify-content: space-between;
+  }
+
+  &__images-box {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    width: 100%;
+
+    flex-wrap: wrap;
+    gap: $gap;
+    // margin: auto;
+    // margin-right: auto;
+
+    &_left {
+      grid-template-columns: repeat(2, $cardMaxSize);
+      margin-right: 25px;
+    }
+  }
+
+  &__children-box {
+    width: fit-content;
+    margin-left: auto;
+  }
+}

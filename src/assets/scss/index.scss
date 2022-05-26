@@ -1,21 +1,21 @@
+@import '../../assets/scss/_variables.scss';
 @import '~@fontsource/roboto/400.css';
 @import '~@fontsource/roboto/500.css';
 @import '~@fontsource/roboto/700.css';
-@import '~@fontsource/roboto/900.css';
+// @import '~@fontsource/roboto/900.css';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
 body {
-  margin: 0 auto;
-  width: 100%;
-  max-width: 1440px;
+  width: $fullWidth;
   min-height: 100vh;
-  font-family: 'Roboto', sans-serif;
-  font-weight: 400;
+  @extend %fontRobotoRegular;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: no-repeat center url('../images/wall.jpg');
   background-size: cover;
-}
-
-* {
-  box-sizing: border-box;
 }

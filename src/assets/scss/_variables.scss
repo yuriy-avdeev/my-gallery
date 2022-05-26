@@ -1,0 +1,37 @@
+@import '~@fontsource/roboto/400.css';
+@import '~@fontsource/roboto/500.css';
+@import '~@fontsource/roboto/700.css';
+
+
+$fullWidth: 100%;
+$maxWidth: 1280px;
+$cardMaxSize: 250px;
+$gap: 18px;
+// $transitionPoint: 1024px;
+$white: rgb(240, 240, 240);
+$blue: rgb(209, 255, 253);
+$red: rgb(188, 0, 0);
+// $fontGrey: #6F8CAA;
+$fontTitle: #1A3150;
+$backgroundColorBody: #f5f7f9;
+$backgroundLayout: rgba(0, 255, 255, .12);
+
+
+
+
+@mixin hover($opacity, $delay) {
+  opacity: $opacity;
+  transition: opacity linear $delay;
+}
+
+@mixin fontProperty($size, $weight, $height, $style) {
+  font-size: $size;
+  font-weight: $weight;
+  line-height: $height;
+  font-style: $style;
+}
+
+%fontRobotoRegular {
+  font-family: 'Roboto';
+  font-weight: 400;
+}

@@ -1,0 +1,17 @@
+@import '../../assets/scss/_variables.scss';
+
+.card {
+  @include fontProperty(20px, 700, 1, _);
+  color: $fontTitle;
+  width: $fullWidth;
+  max-width: $cardMaxSize;
+  // height: $cardMaxSize;
+  border: 2px solid rgb(219, 253, 141); // <<<<<<<<<<<<<
+  border-radius: 6px;
+
+  &__image {
+    width: $fullWidth;
+    max-height: $cardMaxSize; // <<<<<<<<<<<<<
+    background-color: rgba(118, 197, 117, 0.526); // <<<<<<<<<<<<<
+  }
+}

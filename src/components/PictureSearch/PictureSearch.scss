@@ -1,0 +1,19 @@
+@import '../../assets/scss/_variables.scss';
+
+.search {
+  width: calc($cardMaxSize * 2 + $gap);
+  height: fit-content;
+  border-radius: 5px;
+
+  &__label {
+
+  }
+
+  &__input {
+
+  }
+
+  &__warning {
+    color: $red;
+  }
+}

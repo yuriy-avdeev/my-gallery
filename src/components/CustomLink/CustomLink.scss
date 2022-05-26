@@ -1,19 +1,18 @@
-@import '../../assets/scss/variables.scss';
+@import '../../assets/scss/_variables.scss';
 
 .link {
   text-decoration: none;
-  font-size: 18px;
-  line-height: 1.6;
-  color: #fff;
+  @include fontProperty(20px, 500, 1.4, _);
+  color: $blue;
   padding: 0;
   margin-left: 30px;
   padding-bottom: 1px;
 
   &_active {
-    border-bottom: solid #fff 2px;
+    border-bottom: solid $blue 3px;
   }
 
   &:hover {
-    @include hover(0.7, 0.3s);
+    @include hover(0.85, 0.3s);
   }
 }
