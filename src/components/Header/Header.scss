@@ -2,22 +2,33 @@
 
 .header {
   width: $fullWidth;
-  padding: 10px 25px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
   background: no-repeat left url('../../assets/images/header.jpg');
-  background-position: 10%;
+  background-size: cover;
+
+  &__box {
+    padding: 15px;
+    margin: auto;
+    width: $fullWidth;
+    max-width: calc($maxWidth + 30px);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 
   &__logo {
-    width: 50px;
+    width: 45px;
     cursor: pointer;
   }
 
   &__nav-list {
     display: flex;
     align-items: center;
-    margin: 0;
     list-style: none;
+  }
+}
+
+@media screen and (min-width: $transitionPoint) {
+  .header__box {
+    padding: 10px 15px;
   }
 }

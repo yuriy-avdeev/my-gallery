@@ -8,6 +8,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  text-decoration: none;
 }
 
 body {
@@ -18,4 +19,5 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background: no-repeat center url('../images/wall.jpg');
   background-size: cover;
+  overflow-y: scroll;
 }

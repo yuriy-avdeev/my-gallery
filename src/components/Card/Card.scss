@@ -1,17 +1,46 @@
 @import '../../assets/scss/_variables.scss';
 
+@keyframes newborn {
+  from {
+    opacity: 0;
+    transform: scale(.9, .9) translateY(-5px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1) translateY(0);
+  }
+}
+
+
 .card {
-  @include fontProperty(20px, 700, 1, _);
-  color: $fontTitle;
   width: $fullWidth;
-  max-width: $cardMaxSize;
-  // height: $cardMaxSize;
-  border: 2px solid rgb(219, 253, 141); // <<<<<<<<<<<<<
+  height: fit-content;
   border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 5px 5px 10px $fontGrey;
+  animation: newborn 0.5s normal ease-in;
+
+  &:hover {
+    @include hover(0.9, 0.3s);
+  }
+  
+  &__title {
+    @include fontProperty($minGap, 700, 1.4, _);
+    color: $fontGrey;
+    margin-left: 10px;
+  }
+
+  &_shift {
+    max-height: calc($smallCardWidth + $maxGap);
+  }
 
   &__image {
     width: $fullWidth;
-    max-height: $cardMaxSize; // <<<<<<<<<<<<<
-    background-color: rgba(118, 197, 117, 0.526); // <<<<<<<<<<<<<
+  }
+}
+
+@media screen and (min-width: $transitionPoint) {
+  .card {
+    font-size: $maxGap;
   }
 }

@@ -1,19 +1,49 @@
 @import '../../assets/scss/_variables.scss';
 
 .search {
-  width: calc($cardMaxSize * 2 + $gap);
-  height: fit-content;
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
 
   &__label {
-
+    @include fontProperty(24px, 700, 1, _);
+    color: $fontTitle;
+    margin-bottom: 15px;
   }
 
   &__input {
+    @include fontProperty(20px, 500, 1.2, _);
+    border: 2px solid $fontGrey;
+    border-radius: 10px;
+    outline: none;
+    padding: 8px 18px;
+    background-color: rgba(245, 245, 245, 0.3);
+    box-shadow: 5px 5px 10px $fontGrey;
 
+    &:focus {
+      background-color: rgba(245, 245, 245, 0.55);
+    }
+
+    &::placeholder {
+      font-style: italic;
+      font-size: 18px;
+      color: $fontGrey;
+    }
+  }
+
+  &__close {
+    @include fontProperty(35px, 400, 1.2, _);
+    color: $fontGrey;
+    transform: rotate(45deg);
+    position: absolute;
+    top: 40px;
+    right: 15px;
+    cursor: pointer;
   }
 
   &__warning {
+    padding-top: 8px;
+    @include fontProperty(14px, 500, 1.2, italic);
     color: $red;
   }
 }

@@ -2,8 +2,14 @@
 
 .footer {
   width: $fullWidth;
-  padding: 25px;
+  padding: 10px calc(($fullWidth - $maxWidth) / 2);
   display: flex;
   align-items: center;
   background: no-repeat url('../../assets/images/footer.jpg');
+  background-size: cover;
+
+  &__text {
+    @include fontProperty(18px, 500, 1.2, _);
+    color: $blue;
+  }
 }

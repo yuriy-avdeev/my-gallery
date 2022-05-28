@@ -1,11 +1,27 @@
 @import '../../assets/scss/_variables.scss';
 
+@keyframes appearance {
+  from {
+    opacity: 0;
+    transform: translateX(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 .gallery {
+  width: $fullWidth;
+  max-width: $maxWidth;
+  background: $backgroundLayout;
   flex-grow: 2;
-  padding: 25px 0;
+  padding: 15px 10px;
+  margin: auto;
+  box-shadow: 0 0 10px $fontGrey;
 
   &__title {
-    @include fontProperty(28px, 700, 1.2, _);
+    @include fontProperty(30px, 700, 1.2, _);
     margin-bottom: 15px;
     color: $fontTitle;
   }
@@ -13,27 +29,54 @@
   &__content {
     width: $fullWidth;
     display: flex;
-    // justify-content: space-between;
+    flex-direction: column-reverse;
   }
 
   &__images-box {
     display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    width: 100%;
-
-    flex-wrap: wrap;
-    gap: $gap;
-    // margin: auto;
-    // margin-right: auto;
-
-    &_left {
-      grid-template-columns: repeat(2, $cardMaxSize);
-      margin-right: 25px;
-    }
+    grid-template-columns: repeat(2, minmax($smallCardWidth, $bigCardWidth));
+    gap: $minGap;
+    margin: auto;
   }
 
   &__children-box {
-    width: fit-content;
-    margin-left: auto;
+    animation: appearance 0.5s normal ease-in;
+    width: $fullWidth;
+    max-width: calc($bigCardWidth * 2 + $minGap);
+    margin: 0 auto 40px;
+    border-radius: 4px;
+  }
+}
+
+@media screen and (min-width: $transitionPoint) {
+  .gallery {
+    padding: 25px 20px;
+
+    &__title {
+      font-size: 28px;
+    }
+
+    &__content {
+      justify-content: space-between;
+      flex-direction: row;
+      align-items: flex-start;
+    }
+
+    &__images-box {
+      grid-template-columns: repeat(3, $bigCardWidth);
+      gap: $maxGap;
+      &_shift {
+        animation: appearance 0.5s normal ease-in;
+        grid-template-columns: repeat(2, $smallCardWidth);
+        margin: 0 auto 0 0;
+        gap: $minGap;
+      }
+    }
+
+    &__children-box {
+      width: calc($fullWidth - ($smallCardWidth * 2 + ($maxGap * 1)) - 30px);
+      max-width: $fullWidth;
+      margin: 0;
+    }
   }
 }

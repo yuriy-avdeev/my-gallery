@@ -2,17 +2,22 @@
 
 .link {
   text-decoration: none;
-  @include fontProperty(20px, 500, 1.4, _);
+  @include fontProperty(18px, 500, 1.2, _);
   color: $blue;
-  padding: 0;
-  margin-left: 30px;
-  padding-bottom: 1px;
-
+  margin-left: 15px;
   &_active {
-    border-bottom: solid $blue 3px;
+    border-bottom: solid $blue 2px;
   }
 
   &:hover {
     @include hover(0.85, 0.3s);
+  }
+}
+
+@media screen and (min-width: $transitionPoint) {
+  .link {
+    font-size: 20px;
+    margin-left: 30px;
+    padding-bottom: 1px;
   }
 }
