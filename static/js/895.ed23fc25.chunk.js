@@ -1,0 +1,2 @@
+"use strict";(self.webpackChunkmy_gallery=self.webpackChunkmy_gallery||[]).push([[895],{895:function(n,e,t){t.r(e),t.d(e,{default:function(){return a}});var l=t(504),s=t(184),a=function(){return(0,s.jsxs)("div",{className:"not-found",children:[(0,s.jsx)("h3",{className:"not-found__title",children:"404"}),(0,s.jsx)("p",{className:"not-found__text",children:"I don't have this page..."}),(0,s.jsx)(l.rU,{className:"not-found__link",to:"/my-gallery",children:"to main"})]})}}}]);
+//# sourceMappingURL=895.ed23fc25.chunk.js.map
