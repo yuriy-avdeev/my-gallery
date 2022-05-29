@@ -6,7 +6,7 @@
   background-size: cover;
 
   &__box {
-    padding: 15px;
+    padding: 5px 15px;
     margin: auto;
     width: $fullWidth;
     max-width: calc($maxWidth + 30px);
@@ -16,19 +16,14 @@
   }
 
   &__logo {
-    width: 45px;
+    width: 65px;
     cursor: pointer;
+    // transform: rotate(0deg);
   }
 
   &__nav-list {
     display: flex;
     align-items: center;
     list-style: none;
-  }
-}
-
-@media screen and (min-width: $transitionPoint) {
-  .header__box {
-    padding: 10px 15px;
   }
 }

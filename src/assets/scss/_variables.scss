@@ -16,7 +16,8 @@ $red: rgb(188, 0, 0);
 $fontGrey: #516172;
 $fontTitle: #1A3150;
 $backgroundColorBody: #f5f7f9;
-$backgroundLayout: rgba(0, 255, 255, .05);
+// $backgroundLayout: rgba(0, 255, 255, .05);
+$backgroundLayout: rgba(255, 255, 255, 0.4);
 
 
 @mixin hover($opacity, $delay) {

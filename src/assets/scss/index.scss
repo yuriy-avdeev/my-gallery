@@ -2,7 +2,6 @@
 @import '~@fontsource/roboto/400.css';
 @import '~@fontsource/roboto/500.css';
 @import '~@fontsource/roboto/700.css';
-// @import '~@fontsource/roboto/900.css';
 @import url('https://fonts.googleapis.com/css2?family=Satisfy&display=swap');
 
 * {
@@ -18,7 +17,7 @@ body {
   @extend %fontRobotoRegular;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: no-repeat center url('../images/wall.jpg');
+  background: repeat url('../images/wall.jpg');
   background-size: cover;
   overflow-y: scroll;
 }

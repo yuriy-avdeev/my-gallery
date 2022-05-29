@@ -8,13 +8,10 @@ import Main from '../Main/Main'
 import Preloader from '../Preloader/Preloader'
 const Gallery = lazy(() => import('../Gallery/Gallery'))
 const PictureItem = lazy(() => import('../PictureItem/PictureItem'))
-const PictureSearch = lazy(() => import('../PictureSearch/PictureSearch'))
+// const PictureSearch = lazy(() => import('../PictureSearch/PictureSearch'))
 const PageNotFound = lazy(() => import('../PageNotFound/PageNotFound'))
 
 const App = () => {
-  // const changeHandler = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setTitle(e.target.value)
-  // }
   return (
     <div className='app'>
       <Header />

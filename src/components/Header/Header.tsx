@@ -2,7 +2,7 @@ import { useNavigate } from 'react-router-dom'
 
 import './Header.scss'
 import CustomLink from '../CustomLink/CustomLink'
-import brush from '../../assets/images/brush.svg'
+import brush from '../../assets/images/brush.png'
 
 const Header: React.FC = () => {
   const navigate = useNavigate()

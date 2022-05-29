@@ -9,8 +9,8 @@ const Main: React.FC = () => {
   return (
     <div className='main'>
       <div className="main__top-box">
-      <img className="main__foto" src={me} alt="it's me" />
-        <h1 className='main__title'>My gallery.</h1>
+        <img className="main__foto" src={me} alt="it's me" />
+        <h1 className='main__title'>My paintings.</h1>
       </div>
 
       <div>
