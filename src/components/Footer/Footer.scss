@@ -9,7 +9,8 @@
   background-size: cover;
 
   &__text {
-    @include fontProperty(18px, 500, 1.2, _);
-    color: $blue;
+    @include fontProperty(12px, 400, 1.2, _);
+    color: $white;
+    margin-left: 10px;
   }
 }

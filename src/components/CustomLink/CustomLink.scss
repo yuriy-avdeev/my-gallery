@@ -3,10 +3,10 @@
 .link {
   text-decoration: none;
   @include fontProperty(18px, 500, 1.2, _);
-  color: $blue;
+  color: $white;
   margin-left: 15px;
   &_active {
-    border-bottom: solid $blue 2px;
+    border-bottom: solid $white 2px;
   }
 
   &:hover {

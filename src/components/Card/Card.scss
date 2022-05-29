@@ -1,16 +1,15 @@
 @import '../../assets/scss/_variables.scss';
 
-@keyframes newborn {
+@keyframes apperance {
   from {
     opacity: 0;
-    transform: scale(.9, .9) translateY(-5px);
+    transform: translateY(-40px);
   }
   to {
     opacity: 1;
-    transform: scale(1, 1) translateY(0);
+    transform: translateY(0);
   }
 }
-
 
 .card {
   width: $fullWidth;
@@ -18,7 +17,7 @@
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 5px 5px 10px $fontGrey;
-  animation: newborn 0.5s normal ease-in;
+  animation: apperance 0.5s normal ease-in;
 
   &:hover {
     @include hover(0.9, 0.3s);
@@ -26,8 +25,10 @@
   
   &__title {
     @include fontProperty($minGap, 700, 1.4, _);
+    font-family: 'Satisfy', cursive;
     color: $fontGrey;
-    margin-left: 10px;
+    margin: 3px 10px;
+    text-align: end;
   }
 
   &_shift {

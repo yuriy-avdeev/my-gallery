@@ -25,17 +25,15 @@ const PictureSearch: React.FC = () => {
 
   return (
     <div className='search'>
-      <label className='search__label'>Searching</label>
       <input
         className='search__input'
         value={inputValue}
         onChange={handleCgange}
         ref={inputRef}
-        placeholder='start typing here'
+        placeholder='Searching - start typing here'
       />
       <span className='search__close' onClick={() => setInputValue('')}>+</span>
       {!isInputValid && <span className='search__warning'>field can only contain letters</span>}
-
     </div>
   )
 }

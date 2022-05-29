@@ -4,7 +4,7 @@
   width: $fullWidth;
   max-width: $maxWidth;
   background: $backgroundLayout;
-  padding: 15px 10px;;
+  padding: 15px 10px;
   margin: auto;
   flex-grow: 2;
   display: flex;
@@ -12,29 +12,70 @@
   justify-content: start;
   align-items: center;
   box-shadow: 0 0 10px $fontGrey;
+  color: $fontTitle;
 
-  &__title {
-    @include fontProperty(20px, 700, 1.2, _);
-    color: $fontTitle;
+  &__top-box {
+    width: $fullWidth;
+    display: flex;
     margin-bottom: 20px;
   }
 
+  &__title {
+    @include fontProperty(28px, 700, 1.2, _);
+    margin-left: 20px;
+  }
+
   &__foto {
-    width: 220px;
+    width: 100px;
     box-shadow: 5px -5px 10px $fontGrey;
     border-radius: 3px;
   }
+
+  &__text {
+    @include fontProperty(20px, 500, 1.4, _);
+    margin-bottom: 12px;
+    font-family: 'Satisfy', cursive;
+  }
+
+  &__paintings {
+    width: 120px;
+    float: left;
+  }
+
+  &__title_name {
+    @include fontProperty(20px, 700, 1.4, italic);
+    text-align: end;
+    margin-top: 25px;
+    font-family: 'Satisfy', cursive;
+  }
 }
 
-@media screen and (min-width: $transitionPoint) {
+@media screen and (min-width: 768px) {
   .main {
     padding: 25px 20px;
     flex-direction: row;
-    justify-content: space-between;
     align-items: flex-start;
 
+    &__top-box {
+      flex-direction: column-reverse;
+      margin-right: 25px;
+      max-width: fit-content;
+    }
+
     &__title {
-      font-size: 28px;
+      margin: 0 0 25px 0;
+    }
+
+    &__foto {
+      width: 220px;
+    }
+
+    &__text {
+      @include fontProperty(24px, 500, 1.6, italic);
+    }
+
+    &__title_name {
+      @include fontProperty(24px, 700, 1.6, italic);
     }
   }
 }

@@ -19,9 +19,6 @@ const Header: React.FC = () => {
             <li>
               <CustomLink to='my-gallery/gallery'>Gallery</CustomLink>
             </li>
-            <li>
-              <CustomLink to='my-gallery/gallery/search'>Search</CustomLink>
-            </li>
           </ul>
         </nav>
       </div>

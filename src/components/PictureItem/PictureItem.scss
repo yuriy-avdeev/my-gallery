@@ -1,8 +1,20 @@
 @import '../../assets/scss/_variables.scss';
 
+@keyframes newborn {
+  from {
+    opacity: 0;
+    transform: scale(.1, .1) translateY(-700px) translateX(500px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1, 1) translateY(0) translateX(0);
+  }
+}
+
 .picture-item__image {
   width: $fullWidth;
   box-shadow: 5px 5px 10px $fontGrey;
   border-radius: 4px;
+  animation: newborn 1s normal ease-in;
 }
 

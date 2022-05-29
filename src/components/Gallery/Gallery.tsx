@@ -1,5 +1,6 @@
 import { memo, useEffect, useState } from 'react'
 import Card from '../Card/Card'
+import PictureSearch from '../PictureSearch/PictureSearch'
 import './Gallery.scss'
 import { Outlet, useParams, useLocation } from 'react-router-dom'
 import { PaintingData } from '../../types/variables'
@@ -24,18 +25,22 @@ const paintings: PaintingData[] = [ // потом добавить как для
 
 const Gallery: React.FC = () => {
   const { cardId } = useParams()
-  let location = useLocation()
+  // let location = useLocation()
 
   const [isOutletOpen, setIsOutletOpen] = useState(false)
 
   useEffect(() => {
-    setIsOutletOpen(!!cardId || location.pathname === '/my-gallery/gallery/search')
-  }, [cardId, location.pathname])
+    setIsOutletOpen(!!cardId)
+  }, [cardId])
 
 
   return (
     <div className='gallery'>
-      <h1 className='gallery__title'>My gallery</h1>
+      <div className={`gallery__content-box ${isOutletOpen && 'gallery__content-box_shift'}`}>
+        <h1 className='gallery__title'>My gallery</h1>
+        <PictureSearch />
+      </div>
+
       <div className='gallery__content' >
         {/* добавить плавность смещения */}
         <div className={`gallery__images-box ${isOutletOpen && 'gallery__images-box_shift'}`}>

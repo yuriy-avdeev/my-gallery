@@ -24,7 +24,7 @@ const App = () => {
             <Route index element={<Main />} />
             <Route path='gallery' element={<Gallery />}>
               <Route path=':cardId' element={<PictureItem />} />
-              <Route path='search' element={<PictureSearch />} />
+              {/* <Route path='search' element={<PictureSearch />} /> */}
             </Route>
           </Route>
           <Route path='*' element={<PageNotFound />} />

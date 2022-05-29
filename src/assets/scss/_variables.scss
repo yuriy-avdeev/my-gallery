@@ -6,7 +6,7 @@
 $fullWidth: 100%;
 $maxWidth: 1280px;
 $transitionPoint: 1024px;
-$smallCardWidth: 170px;
+$smallCardWidth: 160px;
 $bigCardWidth: 280px;
 $minGap: 15px;
 $maxGap: 20px;
@@ -16,7 +16,7 @@ $red: rgb(188, 0, 0);
 $fontGrey: #516172;
 $fontTitle: #1A3150;
 $backgroundColorBody: #f5f7f9;
-$backgroundLayout: rgba(0, 255, 255, .08);
+$backgroundLayout: rgba(0, 255, 255, .05);
 
 
 @mixin hover($opacity, $delay) {
