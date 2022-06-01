@@ -1,10 +1,11 @@
 import { useState, useRef, useEffect } from 'react'
-import { useDispatch } from 'react-redux'
+import { useAppDispatch } from '../../hooks'
 import './PictureSearch.scss'
 import { searchPainting } from '../../store/paintingSlice'
 
+
 const PictureSearch: React.FC = () => {
-  const dispatch = useDispatch()
+  const dispatch = useAppDispatch()
   const inputRef = useRef<HTMLInputElement>(null)
   const [inputValue, setInputValue] = useState('')
   const [isInputValid, setIsInputValid] = useState(true)
@@ -23,7 +24,6 @@ const PictureSearch: React.FC = () => {
     const regex = /^[a-zA-Z]*$/g
     setIsInputValid(regex.test(e.target.value))
     setInputValue(e.target.value)
-    // тип - навести на элементе на onChange (работает для форм)
   }
 
 

@@ -5,6 +5,8 @@
   @include fontProperty(18px, 500, 1.2, _);
   color: $white;
   margin-left: 15px;
+  background-color: rgba(78, 144, 78, .6);
+
   &_active {
     border-bottom: solid $white 2px;
   }

@@ -6,17 +6,17 @@ import { PaintingData } from '../../types/variables'
 
 type CardProps = {
   painting: PaintingData,
-  isOutletOpen: boolean
+  isPictureOpen: boolean
 }
 
 
-const Card: React.FC<CardProps> = memo(({ painting, isOutletOpen }) => {
+const Card: React.FC<CardProps> = memo(({ painting, isPictureOpen }) => {
   return (
-    <div className={`card ${isOutletOpen && 'card__shift'}`}>
+    <div className={`card ${isPictureOpen && 'card__shift'}`}>
       <NavLink to={painting.cardId}>
-        <img className='card__image' src={painting.link} alt={painting.name} />
+        <img className='card__image' src={painting.link} alt={painting.title} />
       </NavLink>
-      <h4 className='card__title'>{painting.name}</h4>
+      <h4 className='card__title'>{painting.title}</h4>
     </div >
   )
 })
