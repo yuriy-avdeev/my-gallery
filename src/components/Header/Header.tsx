@@ -10,14 +10,14 @@ const Header: React.FC = () => {
   return (
     <header className='header'>
       <div className='header__box'>
-        <img className='header__logo' src={brush} alt='logo' onClick={() => navigate('my-gallery')} />
+        <img className='header__logo' src={brush} alt='logo' onClick={() => navigate('/')} />
         <nav className='header__nav'>
           <ul className='header__nav-list'>
             <li>
-              <CustomLink to='my-gallery'>Main</CustomLink>
+              <CustomLink to='/'>Main</CustomLink>
             </li>
             <li>
-              <CustomLink to='my-gallery/gallery'>Gallery</CustomLink>
+              <CustomLink to='gallery'>Gallery</CustomLink>
             </li>
           </ul>
         </nav>

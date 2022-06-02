@@ -1,25 +1,16 @@
 import { createSlice, createAsyncThunk, PayloadAction, AnyAction } from '@reduxjs/toolkit'
 import { PaintingData, PaintingState, ActionString } from '../types/variables'
-
-import dali from '../assets/images/mock/dali.jpg'
-import endy from '../assets/images/mock/endy.webp'
-import monet from '../assets/images/mock/monet.jpg'
-import raffael from '../assets/images/mock/raffael.jpg'
-import rembrandt from '../assets/images/mock/rembrandt.jpg'
-import vanGog from '../assets/images/mock/van-gog.jpg'
-import sun from '../assets/images/mock/sun.png'
-const paintingsTempList = [
-  { title: 'Dali', link: dali, cardId: 'dali' },
-  { title: 'Monet', link: monet, cardId: 'monet' },
-  { title: 'Raffael', link: raffael, cardId: 'raffael' },
-  { title: 'VanGog', link: vanGog, cardId: 'van-gog' },
-  { title: 'Rembrandt', link: rembrandt, cardId: 'rembrandt' },
-  { title: 'Sun', link: sun, cardId: 'sun' },
-  { title: 'Endy', link: endy, cardId: 'endy' },
-]
+import { paintingsTempList } from './data'
 
 interface IPaintingData extends PaintingData {
   id: number // т.к. вервер возвращает со "своим" id (ниже я его чищу перед добавлением карточки)
+}
+
+const initialState: PaintingState = {
+  paintingsMainList: [],
+  paintingsRenderList: [],
+  isLoading: false,
+  error: null,
 }
 
 // принимает имя (принято как ниже) и асинх. ф-ю с 3-я (или 2-я парметарми)
@@ -34,32 +25,10 @@ export const fetchPaintings = createAsyncThunk<PaintingData[], number, { rejectV
   }
 )
 
-// <<<<<<<<<<<<<<<<<
-
-export const deletePainting = createAsyncThunk<PaintingData, string, { rejectValue: string; state: { paintings: PaintingState }}>(
-  'paintings/deletePainting', 
-  async function (cardId, { rejectWithValue, getState }) {
-  // getState - получить к.-л. данные из стейта - для этого выше описываем чтo такое state
-  const card = getState().paintings.paintingsMainList.find((c) => c.cardId === cardId)
-  console.log(card)
-
-  if (card) {
-    // без этой проверки TS давал ошибку - думал, что card м.б. undefined т.е. не найдена
-    const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${cardId}`, {
-      method: 'DELETE', // если меняем данные - в тело запроса новую карточку
-    })
-    if (!res.ok) rejectWithValue('Server Error! Delete faild!')
-    // dispatch(removePainting({id})) // удаляем локально (моковый вызов) <- подход без TS
-    return card // можно не искать выше карточку, а просто вернуть id - но оставил, чтобы показать доступ к стейту
-  }
-  return rejectWithValue('No such painting!')
-})
-
 export const addPainting = createAsyncThunk<IPaintingData, { name: string; link: string }, { rejectValue: string }>(
   'paintings/addPainting',
   async function ({ name, link }, { rejectWithValue }) {
-    console.log(link);
-    
+    console.log(link) // <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
     const painting = {
       title: name,
       link,
@@ -77,20 +46,33 @@ export const addPainting = createAsyncThunk<IPaintingData, { name: string; link:
   }
 )
 
+export const deletePainting = createAsyncThunk<
+  PaintingData,
+  string,
+  { rejectValue: string; state: { paintings: PaintingState } }
+>('paintings/deletePainting', async function (cardId, { rejectWithValue, getState }) {
+  // getState - получить к.-л. данные из стейта - для этого выше описываем чтo такое state
+  const card = getState().paintings.paintingsMainList.find((c) => c.cardId === cardId)
+  if (card) {
+    // без этой проверки TS давал ошибку - думал, что card м.б. undefined т.е. не найдена
+    const res = await fetch(`https://jsonplaceholder.typicode.com/todos/${cardId}`, {
+      method: 'DELETE', // если меняем данные - в тело запроса новую карточку
+    })
+    if (!res.ok) rejectWithValue('Server Error! Delete faild!')
+    // dispatch(removePainting({id})) // удаляем локально (моковый вызов) <- подход без TS
+    return card // можно не искать выше карточку, а просто вернуть id - но оставил, чтобы показать доступ к стейту
+  }
+  return rejectWithValue('No such painting!')
+})
+
+// ===========================================================================================
+
+// без ts ->
 // const setError = (state, action) => {
 //   // проверить - передаю внизу без вызова и параметров как и в видео
 //   state.error = action.payload
 //   state.isLoading = false
 // }
-
-// ===========================================================================================
-
-const initialState: PaintingState = {
-  paintingsMainList: [],
-  paintingsRenderList: [],
-  isLoading: false,
-  error: null,
-}
 
 // ============================================================================================
 
@@ -124,7 +106,6 @@ const paintingSlice = createSlice({
           }
         })
         state.paintingsRenderList = state.paintingsMainList
-        console.log('state.paintingsMainList', state.paintingsMainList)
         state.isLoading = false
       })
 
@@ -155,13 +136,6 @@ const paintingSlice = createSlice({
       })
   },
 
-  // { title: 'Dali', link: dali, cardId: 'dali' },
-
-  // completed: false
-  // id: 1
-  // title: "delectus aut autem"
-  // userId: 1
-
   //   // нужен для отработки асинхр. кода (тут фетч) - ниже 1 из вариантов обработки кода - но этот подход если нет ts, если в проекте ts - рекомендованный подход использовать builder (выше)
   //   extraReducers: {
   //     [fetchPaintings.pending]: (state) => {
@@ -169,22 +143,20 @@ const paintingSlice = createSlice({
   //       state.isLoading = true
   //       state.error = null // если была раньше
   //     },
-
   //     [fetchPaintings.fulfilled]: (state, action) => {
   //       state.paintingsMainList = action.payload.map((c) => ...) // логику для слияния со своими данными
   //       state.isLoading = false
   //     },
-
   //     [fetchPaintings.rejected]: setError,
   //     [deletePainting.rejected]: setError,
   //   },
 })
 
-// наружу из paintingSlice.actions - если использовать только локально для асинхронных операций, то экспорт убрать!!!
-export const { searchPainting } = paintingSlice.actions
-export default paintingSlice.reducer // подключить к стору в index.ts
-
 // ловим ошибку; тип AnyAction - из библиотеки
 function isError(action: AnyAction) {
   return action.type.endsWith('rejected') // boolean
 }
+
+// наружу из paintingSlice.actions - если использовать только локально для асинхронных операций, то экспорт убрать!!!
+export const { searchPainting } = paintingSlice.actions
+export default paintingSlice.reducer // подключить к стору в index.ts

@@ -11,8 +11,7 @@ import { fetchPaintings } from '../../store/paintingSlice'
 const Gallery: React.FC = () => {
   const { cardId } = useParams()
   const dispatch = useAppDispatch()
-  // useSelector - доступ к данным стора (приним. стейт и ф-ю и возвр. тут в переменную)
-  const { isLoading, error, paintingsMainList, paintingsRenderList } = useAppSelector(state => state.paintings)
+  const { paintingsMainList, paintingsRenderList } = useAppSelector(state => state.paintings)
   const [isPictureOpen, setIsPictureOpen] = useState(false)
 
   useEffect(() => {
@@ -31,9 +30,6 @@ const Gallery: React.FC = () => {
       </div>
 
       <div className='gallery__content' >
-        {error && <h2>Error - {error}</h2>}
-        {isLoading && <h2>LOADING...</h2>}
-
         <div className={`gallery__images-box ${isPictureOpen && 'gallery__images-box_shift'}`}>
           {
             paintingsRenderList.map(c =>

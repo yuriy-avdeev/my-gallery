@@ -1,6 +1,5 @@
 {
   "name": "my-gallery",
-  "homepage": "https://yuryavdeev.github.io/my-gallery",
   "version": "0.1.0",
   "private": true,
   "dependencies": {

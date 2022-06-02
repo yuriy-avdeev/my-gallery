@@ -2,66 +2,36 @@ import { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
 
 import './PictureItem.scss'
+import Form from '../Form/Form'
 import { PaintingData } from '../../types/variables'
-
-import { useAppSelector, useAppDispatch } from '../../hooks' // <<<<<<<<<<<
-import vanGog from '../../assets/images/mock/van-gog.jpg' // <<<<<<<<<<<
-import { addPainting, deletePainting } from '../../store/paintingSlice' // <<<<<<<<<<<
+import { useAppSelector } from '../../hooks'
 
 
 // надуманный пример - наследование интерфейса от (!) типа без новых данных
 interface IPaintingData extends PaintingData { }
 
-
-const PictureItem = () => {
+const PictureItem: React.FC = () => {
   const { cardId } = useParams()
-  const dispatch = useAppDispatch() // <<<<<<<<<<<
   const { paintingsMainList } = useAppSelector(state => state.paintings)
   const [card, setCard] = useState<IPaintingData>()
-  const [inputTitle, setInputTitle] = useState('')
-  const [inputLink, setInputLink] = useState('')
 
   useEffect(() => {
     setCard(paintingsMainList.find(c => c.cardId === cardId))
-    console.log(paintingsMainList)
   }, [cardId, paintingsMainList])
 
-
-  // все работает - временно закомментировал
-  const handleAdd: React.FormEventHandler<HTMLFormElement> = (e): void => {
-    e.preventDefault()
-    dispatch(addPainting({ name: inputTitle, link: inputLink }))
-  }
-
-  // все работает - временно закомментировал
-  const handleDelete = () => {
-    if (cardId) dispatch(deletePainting(cardId))
-  }
-
   return (
-    <div className='picture-item'>
-      <form className='picture-item__form' onSubmit={handleAdd}>
-        <input
-          className='picture-item__input'
-          name='title'
-          value={inputTitle}
-          onChange={(e) => setInputTitle(e.target.value)}
-          placeholder='title'
-        />
+    <>
+      {card &&
+        <>
+          <img className='picture-item__image' src={card.link} alt={`painting ${card.title}`} />
+          <h3 className='picture-item__title'>{card.title}</h3>
+          <p className='picture-item__text'>2019. According to The New Yorker magazine, this is one of the most significant paintings of the first half of the 21st century, at the same time it is one of my favorite paintings that evokes warm memories.</p>
+        </>
+      }
 
-        <input
-          className='picture-item__input'
-          name='link'
-          value={inputLink}
-          onChange={(e) => setInputLink(e.target.value)}
-          placeholder='link'
-          type="file"
-        />
-        <button className='picture-item__btn_add'>SEND</button>
-      </form>
-      {card && <img className='picture-item__image' src={card.link} alt={`painting ${card.title}`} />}
-      <button onClick={handleDelete} className='picture-item__btn_del'>DELETE</button>
-    </div>
+      {/* форма для добавления и удаления картин */}
+      {/* <Form cardId={cardId} /> */}
+    </>
   )
 }
 

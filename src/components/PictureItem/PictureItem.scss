@@ -3,7 +3,7 @@
 @keyframes newborn {
   from {
     opacity: 0;
-    transform: scale(.1, .1) translateY(-700px) translateX(500px);
+    transform: scale(0.1, 0.1) translateY(-700px) translateX(500px);
   }
   to {
     opacity: 1;
@@ -12,29 +12,6 @@
 }
 
 .picture-item {
-  position: relative;
-
-  &__form {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 15px;
-  }
-
-  &__input {
-    width: 60%;
-    @include fontProperty(20px, 500, 1.2, _);
-    border: 2px solid $fontGrey;
-    border-radius: 6px;
-    outline: none;
-    padding: 4px 10px;
-    margin-bottom: 10px;
-    background-color: rgba(245, 245, 245, 0.3);
-
-    &:focus {
-      background-color: rgba(245, 245, 245, 0.7);
-    }
-  }
-
   &__image {
     width: $fullWidth;
     box-shadow: 5px 5px 10px $fontGrey;
@@ -42,39 +19,14 @@
     animation: newborn 1s normal ease-in;
   }
 
-  &__btn_del {
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background-color: $backgroundLayout;
-    border-radius: 3px;
-    border: none;
-    outline: none;
-    cursor: pointer;
-    padding: 4px;
-    color: $white;
-
-    &:hover {
-      color: $red;
-      border: 1px solid $red;
-    }
+  &__title {
+    @include fontProperty(22px, 500, 1.2, italic);
+    margin: 30px 0 15px 0;
+    color: $fontTitle;
   }
 
-  &__btn_add {
-    width: fit-content;
-    background-color: $backgroundLayout;
-    border-radius: 3px;
-    border: 1px solid $red;
-    outline: none;
-    cursor: pointer;
-    padding: 4px;
-    color: $red;
-
-    &:hover {
-      color: $blue;
-      border: 1px solid $blue;
-    }
+  &__text {
+    @include fontProperty(18px, 400, 1.4, _);
+    color: $fontTitle;
   }
 }
-
-
