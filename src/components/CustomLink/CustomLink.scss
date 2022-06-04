@@ -6,9 +6,10 @@
   color: $white;
   margin-left: 15px;
   background-color: rgba(78, 144, 78, .6);
+  border-radius: 2px;
 
   &_active {
-    border-bottom: solid $white 2px;
+    border-bottom: solid $white 3px;
   }
 
   &:hover {

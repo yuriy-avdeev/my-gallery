@@ -2,12 +2,12 @@
 
 @keyframes apperance {
   from {
+    transform: scale(0, 0);
     opacity: 0;
-    transform: translateY(-40px);
   }
   to {
+    transform: scale(1, 1);
     opacity: 1;
-    transform: translateY(0);
   }
 }
 
@@ -17,17 +17,20 @@
   border-radius: 6px;
   overflow: hidden;
   box-shadow: 5px 5px 10px $fontGrey;
-  animation: apperance 0.5s normal ease-in;
+  animation: apperance 0.7s ease-out;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 
   &:hover {
     @include hover(0.9, 0.3s);
   }
-  
+
   &__title {
     @include fontProperty($minGap, 700, 1.4, _);
     font-family: 'Satisfy', cursive;
     color: $fontGrey;
-    margin: 3px 10px;
+    margin: 5px 10px 5px auto;
     text-align: end;
   }
 
@@ -36,7 +39,8 @@
   }
 
   &__image {
-    width: $fullWidth;
+    max-width: $fullWidth;
+    max-height: 240px;
   }
 }
 

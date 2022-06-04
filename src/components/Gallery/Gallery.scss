@@ -3,7 +3,7 @@
 @keyframes appearance {
   from {
     opacity: 0;
-    transform: translateX(10px);
+    transform: translateX(100px);
   }
   to {
     opacity: 1;
@@ -47,11 +47,11 @@
   }
 
   &__children-box {
-    animation: appearance 0.5s normal ease-in;
     width: $fullWidth;
     max-width: calc($bigCardWidth * 2 + $minGap);
     margin: 0 auto 40px;
     border-radius: 4px;
+    overflow: hidden;
   }
 }
 
