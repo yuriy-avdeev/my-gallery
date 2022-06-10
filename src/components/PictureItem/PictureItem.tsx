@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { useParams } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 
 import './PictureItem.scss'
 import Form from '../Form/Form'
@@ -11,13 +11,20 @@ import { useAppSelector } from '../../hooks'
 interface IPaintingData extends PaintingData { }
 
 const PictureItem: React.FC = () => {
+  // вариант ниже -> проблема при вводе вручную любых данных в поле => переход на страницу карточки по GET-запросу
+  // или setCard(paintingsMainList.find ниже в useEffect -> если не найдено - 404-ю страницу
   const { cardId } = useParams()
   const { paintingsMainList } = useAppSelector(state => state.paintings)
   const [card, setCard] = useState<IPaintingData>()
+  const navigate = useNavigate()
 
   useEffect(() => {
-    setCard(paintingsMainList.find(c => c.cardId === cardId))
-  }, [cardId, paintingsMainList])
+    const currentCard = paintingsMainList.find(c => c.cardId === cardId)
+    currentCard ?
+      setCard(currentCard)
+      :
+      navigate('/not-found')
+  }, [cardId, navigate, paintingsMainList])
 
   return (
     <>

@@ -17,7 +17,7 @@ body {
   @extend %fontRobotoRegular;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: repeat url('../images/wall.jpg');
-  background-size: cover;
+  background: url('../images/wall.jpg');
+  background-repeat: repeat;
   overflow-y: scroll;
 }

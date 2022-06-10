@@ -46,6 +46,23 @@
     margin: auto;
   }
 
+  &__info-box {
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+
+  &__foto {
+    width: 300px;
+    margin-bottom: 30px;
+  }
+
+  &__message {
+    @include fontProperty(28px, 500, 1.2, italic);
+    color: $fontTitle;
+    margin: auto;
+  }
+
   &__children-box {
     width: $fullWidth;
     max-width: calc($bigCardWidth * 2 + $minGap);

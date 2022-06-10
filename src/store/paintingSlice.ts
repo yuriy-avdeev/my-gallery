@@ -3,7 +3,7 @@ import { PaintingData, PaintingState, ActionString } from '../types/variables'
 import { paintingsTempList } from './data'
 
 interface IPaintingData extends PaintingData {
-  id: number // т.к. вервер возвращает со "своим" id (ниже я его чищу перед добавлением карточки)
+  id: number // т.к. cервер возвращает со "своим" id (ниже я его чищу перед добавлением карточки)
 }
 
 const initialState: PaintingState = {
