@@ -32,6 +32,10 @@
     color: $fontGrey;
     margin: 5px 10px 5px auto;
     text-align: end;
+
+    &_highlight {
+      color: rgb(0, 191, 255);
+    }
   }
 
   &_shift {
@@ -45,7 +49,7 @@
 }
 
 @media screen and (min-width: $transitionPoint) {
-  .card {
+  .card__title {
     font-size: $maxGap;
   }
 }

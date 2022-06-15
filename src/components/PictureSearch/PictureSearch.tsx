@@ -26,7 +26,7 @@ const PictureSearch: React.FC = () => {
     setInputValue(e.target.value)
   }
 
-
+  
   return (
     <div className='search'>
       <input

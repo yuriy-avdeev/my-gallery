@@ -9,6 +9,7 @@ interface IPaintingData extends PaintingData {
 const initialState: PaintingState = {
   paintingsMainList: [],
   paintingsRenderList: [],
+  inputValue: '',
   isLoading: false,
   error: null,
 }
@@ -83,10 +84,10 @@ const paintingSlice = createSlice({
     // набор методов для дальнейшего использования
     // после добавления асинх. кода логика ушла в экстраредюсеры
     searchPainting(state, action: PayloadAction<ActionString>) {
+      state.inputValue = action.payload.inputValue
       state.paintingsRenderList = state.paintingsMainList.filter((c) =>
         c.title.toLowerCase().includes(action.payload.inputValue.toLowerCase())
       )
-      // console.log(action); // type: "paintings/searchPainting" - создается под капотом тулкитом
     },
   },
 

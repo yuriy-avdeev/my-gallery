@@ -53,14 +53,16 @@
   }
 
   &__foto {
-    width: 300px;
-    margin-bottom: 30px;
+    width: 200px;
+    margin: 0 auto 30px;
   }
 
   &__message {
-    @include fontProperty(28px, 500, 1.2, italic);
+    @include fontProperty(34px, 500, 1.2, _);
+    font-family: 'Satisfy', cursive;
     color: $fontTitle;
     margin: auto;
+    text-align: center;
   }
 
   &__children-box {

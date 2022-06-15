@@ -26,7 +26,6 @@ const App = () => {
   return (
     <div className='app'>
       <Header />
-      <h5>test</h5>
       {/* Suspense работает, но не идеально => добавил Preloader в Gallery */}
       <Suspense fallback={<Preloader />}>
         <Routes>

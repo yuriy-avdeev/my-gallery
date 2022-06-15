@@ -17,6 +17,7 @@ export type PaintingData = {
 export type PaintingState = {
   paintingsMainList: PaintingData[]
   paintingsRenderList: PaintingData[]
+  inputValue: string
   isLoading: boolean
   error: string | null
 }

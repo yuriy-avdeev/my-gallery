@@ -10,7 +10,7 @@ const Main: React.FC = () => {
     <div className='main'>
       <div className="main__top-box">
         <img className="main__foto" src={me} alt="it's me" />
-        <h1 className='main__title'>My paintings.</h1>
+        <h1 className='main__title'>My paintings</h1>
       </div>
 
       <div>
